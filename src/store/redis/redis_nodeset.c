@@ -536,7 +536,7 @@ redis_node_t *nodeset_node_find_by_cluster_id(redis_nodeset_t *ns, ngx_str_t *cl
   return nodeset_node_find_by(ns, &_node_match.cluster_id, cluster_id);
 }
 
-static int keyslot_ranges_overlap(redis_slot_range_t *r1, redis_slot_range_t *r2) {
+[[maybe_unused]] static int keyslot_ranges_overlap(redis_slot_range_t *r1, redis_slot_range_t *r2) {
   return rbtree_cluster_keyslots_compare(r1, r2) == 0;
 }
 

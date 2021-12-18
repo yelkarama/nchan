@@ -761,7 +761,7 @@ static void redis_subscriber_callback(redisAsyncContext *c, void *r, void *privd
     }
     else if(CHECK_REPLY_STR(el)) {
       uint32_t    array_sz;
-      unsigned    chid_present = 0;
+      [[maybe_unused]] unsigned    chid_present = 0;
       ngx_str_t   extracted_channel_id;
       unsigned    msgbuf_size_changed = 0;
       int64_t     msgbuf_size = 0;

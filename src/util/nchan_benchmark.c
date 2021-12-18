@@ -200,7 +200,7 @@ ngx_int_t nchan_benchmark_initialize(void) {
 }
 
 ngx_int_t nchan_benchmark_run(void) {
-  uint64_t required_subs = bench.config->subscribers_per_channel * bench.config->channels;
+  [[maybe_unused]] uint64_t required_subs = bench.config->subscribers_per_channel * bench.config->channels;
   assert(*bench.shared.subscribers_enqueued == required_subs);
   int       i;
   size_t msgbuf_maxlen = bench.config->msg_padding + 64;

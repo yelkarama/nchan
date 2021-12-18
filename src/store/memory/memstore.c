@@ -681,7 +681,7 @@ static ngx_int_t chanhead_push_message(memstore_channel_head_t *ch, store_messag
 static ngx_int_t nchan_store_init_worker(ngx_cycle_t *cycle) {
   ngx_core_conf_t    *ccf = (ngx_core_conf_t *) ngx_get_conf(cycle->conf_ctx, ngx_core_module);
   ngx_int_t           workers = ccf->worker_processes;
-  ngx_int_t           i, procslot_found = 0;
+  [[maybe_unused]] ngx_int_t           i, procslot_found = 0;
   
 #if FAKESHARD
   for(i = 0; i < MAX_FAKE_WORKERS; i++) {
@@ -1282,7 +1282,7 @@ memstore_channel_head_t *nchan_memstore_get_chanhead_no_ipc_sub(ngx_str_t *chann
 }
 
 ngx_int_t chanhead_gc_add(memstore_channel_head_t *ch, const char *reason) {
-  ngx_int_t                   slot = memstore_slot();
+  [[maybe_unused]] ngx_int_t                   slot = memstore_slot();
   DBG("Chanhead gc add %p %V: %s", ch, &ch->id, reason);
   
   if(!ch->shutting_down) {

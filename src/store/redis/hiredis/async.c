@@ -376,7 +376,7 @@ void __redisAsyncDisconnect(redisAsyncContext *ac) {
 
     if (ac->err == 0) {
         /* For clean disconnects, there should be no pending callbacks. */
-        int ret = __redisShiftCallback(&ac->replies,NULL);
+        [[maybe_unused]] int ret = __redisShiftCallback(&ac->replies,NULL);
         assert(ret == REDIS_ERR);
     } else {
         /* Disconnection is caused by an error, make sure that pending

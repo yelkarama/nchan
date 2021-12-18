@@ -752,7 +752,7 @@ static ngx_int_t spool_transfer_subscribers(subscriber_pool_t *spool, subscriber
   ngx_int_t               count = 0;
   subscriber_t           *sub;
   spooled_subscriber_t   *cur;
-  channel_spooler_t      *spl = spool->spooler;
+  [[maybe_unused]] channel_spooler_t      *spl = spool->spooler;
   
   assert(spl == newspool->spooler);
   
